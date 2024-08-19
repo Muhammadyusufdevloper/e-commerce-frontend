@@ -1,5 +1,6 @@
 import { lazy, memo } from 'react'
 import { Outlet } from 'react-router-dom'
+import Footer from '../components/footer/footer'
 const Header = lazy(() => import('../components/header/header'))
 
 const Layout = () => {
@@ -9,6 +10,7 @@ const Layout = () => {
             <main>
                 <Outlet />
             </main>
+            <Footer />
         </>
     )
 }

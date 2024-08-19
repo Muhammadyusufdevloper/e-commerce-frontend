@@ -1,0 +1,128 @@
+.happy-customers {
+  margin-top: 80px;
+  transform: translateY(10px);
+  &__top-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  &__title {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 57.6px;
+    text-align: left;
+    color: #000000;
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  &__button {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+    &:hover {
+      background-color: #0000001a;
+    }
+  }
+
+  &__card {
+    padding: 28px 32px;
+    border: 1px solid #0000001a;
+    border-radius: 20px;
+    height: 240px;
+  }
+  &__card-star {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #ffc633;
+    margin-bottom: 15px;
+    svg {
+      width: 23px;
+      height: 23px;
+    }
+  }
+  &__card-context {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 24px;
+    svg {
+      width: 20px;
+      height: 20px;
+      color: #01ab31;
+    }
+  }
+  &__card-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #000000;
+  }
+  &__card-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: #00000099;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+}
+.happy-customers {
+  @media (max-width: 770px) {
+    margin-top: 0px;
+    transform: translateY(70px);
+    &__title {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 57.6px;
+      text-align: left;
+      color: #000000;
+    }
+  }
+  @media (max-width: 630px) {
+    &__title {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 36px;
+      text-align: left;
+      color: #000000;
+    }
+    &__top-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width: 430px) {
+    &__title {
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 36px;
+      text-align: left;
+      color: #000000;
+    }
+  }
+  @media (max-width: 370px) {
+    &__title {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 28px;
+      text-align: left;
+      color: #000000;
+    }
+  }
+}

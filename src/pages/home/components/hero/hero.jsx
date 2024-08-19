@@ -7,6 +7,7 @@ import calvinKelin from "../../../../assets/images/hero/calvin-klein.png"
 import heroImg from "../../../../assets/images/hero/hero-image.png"
 import vector from "../../../../assets/images/hero/vector.png"
 import minVector from "../../../../assets/images/hero/min-vector.png"
+import { memo } from "react"
 const Hero = () => {
     return (
         <>
@@ -55,4 +56,4 @@ const Hero = () => {
     )
 }
 
-export default Hero
+export default memo(Hero)

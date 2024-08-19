@@ -1,0 +1,133 @@
+.order-summary {
+  &__wrapper {
+    border: 1px solid #0000001a;
+    border-radius: 20px;
+    padding: 20px 24px 33px;
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32.4px;
+    color: #000000;
+    margin-bottom: 24px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #0000001a;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__text {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #00000099;
+  }
+  &__price {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    color: #000000;
+    &--color {
+      color: #ff3333;
+    }
+  }
+  &__total-text {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: left;
+    color: #000000;
+  }
+  &__total {
+    margin-bottom: 24px;
+  }
+  &__total-price {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32.4px;
+    color: #000000;
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    overflow: hidden;
+    border-radius: 62px;
+    flex-grow: 1;
+  }
+  &__input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 12px 5px;
+    flex-grow: 1;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.6px;
+    color: #00000066;
+  }
+  &__label {
+    padding: 12px 7px 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #00000066;
+    svg {
+      width: 21px;
+      height: 21px;
+      transform: rotate(280deg);
+    }
+  }
+  &__form-btn {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21.6px;
+    color: #ffffff;
+    padding: 13px 39px;
+    border-radius: 62px;
+    background: #000000;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #ffffff;
+    width: 100%;
+    border-radius: 62px;
+    padding: 18px 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21.6px;
+    background-color: #000000;
+    svg {
+      width: 16px;
+      height: 18px;
+    }
+  }
+}
+.order-summary {
+  @media (max-width: 600px) {
+  }
+}

@@ -12,10 +12,14 @@ import HeaderMenu from "./components/header-menu/header-menu"
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false)
     const [showSearch, setShowSearch] = useState(false)
+    const [headerShrink, setHeaderShrink] = useState(false)
+    document.addEventListener("scroll", () => {
+        setHeaderShrink(window.scrollY)
+    })
     return (
         <>
             <SapHeader />
-            <header className="header">
+            <header className={`header ${headerShrink > 35 ? "header--shrink" : ""}`}>
                 <div className="container">
                     <nav className="header__navbar">
                         <div className="header__logo-wrapper">

@@ -1,5 +1,14 @@
 .header {
-  padding: 24px 0;
+  padding: 20px 0;
+  &--shrink {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #ffffff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.015);
+    z-index: 999;
+  }
   &__navbar {
     display: flex;
     align-items: center;
