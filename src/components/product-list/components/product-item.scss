@@ -46,7 +46,9 @@
       width: 19px;
       height: 19px;
     }
-    margin-bottom: 8px;
+    & {
+      margin-bottom: 8px;
+    }
   }
   &__rating-text {
     font-size: 14px;
@@ -136,7 +138,9 @@
         width: 15px;
         height: 15px;
       }
-      margin-bottom: 6px;
+      & {
+        margin-bottom: 6px;
+      }
     }
     &__price-box {
       display: flex;
