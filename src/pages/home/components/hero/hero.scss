@@ -53,10 +53,8 @@
     margin-top: 48px;
   }
   &__card {
-    & {
-      padding: 0 28px;
-      border-left: 1px solid #0000001a;
-    }
+    padding: 0 28px;
+    border-left: 1px solid #0000001a;
     &:first-child {
       padding: 0;
       padding-right: 28px;
@@ -184,13 +182,11 @@
       justify-content: center;
     }
     &__card {
+      padding: 0 18px;
+      border-left: 1px solid #0000001a;
       &:last-child {
         padding: 0;
         border: none;
-      }
-      & {
-        padding: 0 18px;
-        border-left: 1px solid #0000001a;
       }
     }
     &__card-title {

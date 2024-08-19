@@ -42,12 +42,10 @@
     align-items: center;
     gap: 5px;
     color: #ffc633;
+    margin-bottom: 8px;
     svg {
       width: 19px;
       height: 19px;
-    }
-    & {
-      margin-bottom: 8px;
     }
   }
   &__rating-text {
@@ -134,12 +132,10 @@
       display: flex;
       align-items: center;
       gap: 5px;
+      margin-bottom: 6px;
       svg {
         width: 15px;
         height: 15px;
-      }
-      & {
-        margin-bottom: 6px;
       }
     }
     &__price-box {
