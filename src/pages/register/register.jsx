@@ -1,11 +1,12 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import PhoneInput, { parsePhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import "./register.scss";
+import { useRegisterMutation } from "../../context/api/login-registerApi";
 
 const initialValues = {
     fname: "",
@@ -26,6 +27,13 @@ const validationSchema = Yup.object({
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [registerAdmin, { isSuccess }] = useRegisterMutation()
+    let navigate = useNavigate();
+    useEffect(() => {
+        if (isSuccess) {
+            navigate('/login')
+        }
+    }, [])
     const formik = useFormik({
         initialValues,
         validationSchema,
@@ -34,8 +42,7 @@ const Register = () => {
             // Phone number format for API
             const formattedPhone = parsePhoneNumber(phone)?.number;
             submitValues.phone = formattedPhone;
-
-            console.log("Form values:", submitValues);
+            registerAdmin(submitValues);
         },
     });
 

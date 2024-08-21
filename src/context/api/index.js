@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react'
 const baseQuery = async (args, api, extraOptions) => {
   const { dispatch } = api
   const rawBaseQuery = fetchBaseQuery({
-    baseUrl: "https://...",
+    baseUrl: "http://localhost:8000",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("x-auth-token")
       if (token) {
@@ -20,7 +20,7 @@ const baseQuery = async (args, api, extraOptions) => {
     const { status } = result.error;
     if (status === 401 || status === 403) {
       console.error('Unauthorized access - Redirecting to login...');
-      // dispatch(logout())
+      dispatch(logout())
     }
   }
   return result;
@@ -30,6 +30,6 @@ const baseQueryWithRetry = retry(baseQuery, { maxRetries: 0 })
 export const api = createApi({
   reducerPath: 'myApi',
   baseQuery: baseQueryWithRetry,
-  tagTypes: ["User", "Product", "Category"], 
+  tagTypes: ["Product"],
   endpoints: () => ({}),
 })

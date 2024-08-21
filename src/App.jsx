@@ -1,5 +1,6 @@
 import { lazy, memo } from "react"
 import { Route, Routes } from "react-router-dom"
+const Wishlist = lazy(() => import("./pages/wishlist/wishlist"))
 const NoteFound = lazy(() => import("./pages/note-found/note-found"))
 const Cart = lazy(() => import("./pages/cart/cart"))
 const Login = lazy(() => import("./pages/login/login"))
@@ -16,6 +17,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="single-route/:id" element={<SingleRoute />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="wishlist" element={<Wishlist />} />
           <Route path="*" element={<NoteFound />} />
         </Route>
         <Route path="/login" element={<Login />} />

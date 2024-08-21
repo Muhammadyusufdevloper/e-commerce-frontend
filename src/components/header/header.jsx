@@ -9,6 +9,7 @@ import { FaRegHeart } from "react-icons/fa"
 import { GrSearch } from "react-icons/gr"
 import { HiMenu } from "react-icons/hi"
 import HeaderMenu from "./components/header-menu/header-menu"
+import { useSelector } from "react-redux"
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false)
     const [showSearch, setShowSearch] = useState(false)
@@ -16,6 +17,9 @@ const Header = () => {
     document.addEventListener("scroll", () => {
         setHeaderShrink(window.scrollY)
     })
+    let wishlist = useSelector(state => state.wishlist.value)
+    let cart = useSelector(state => state.cart.value)
+
     return (
         <>
             <SapHeader />
@@ -55,11 +59,15 @@ const Header = () => {
                             <button onClick={() => setShowSearch(true)} className="header__search-btn"><GrSearch /></button>
                             <Link to="/cart" className="header__icon-link">
                                 <CgShoppingCart />
-                                <span>0</span>
+                                {
+                                    cart?.length ? <span>{cart?.length}</span> : null
+                                }
                             </Link>
                             <Link to="/wishlist" className="header__icon-link">
                                 <FaRegHeart />
-                                <span>0</span>
+                                {
+                                    wishlist?.length > 0 ? <span>{wishlist?.length}</span> : null
+                                }
                             </Link>
                         </div>
                     </nav>

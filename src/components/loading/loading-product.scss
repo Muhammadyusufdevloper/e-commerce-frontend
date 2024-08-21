@@ -1,0 +1,15 @@
+.loading-product {
+  &__images {
+    height: 298px;
+    background-color: #f0eeed;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  &__content {
+    padding: 0 10px;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+  }
+}

@@ -4,10 +4,11 @@ import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { memo, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useSignInMutation } from "../../context/api/login-registerApi";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-
+    const [loginAdmin] = useSignInMutation()
     const formik = useFormik({
         initialValues: {
             username: "",
@@ -21,7 +22,7 @@ const Login = () => {
         }),
         onSubmit: (values) => {
             // Form submission
-            console.log("Form values:", values);
+            loginAdmin(values);
         },
     });
 
