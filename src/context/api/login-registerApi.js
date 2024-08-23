@@ -8,7 +8,7 @@ export const loginRegisterApi = api.injectEndpoints({
         method: "POST",
         body
       }),
-      invalidatesTags: ["Product"]
+      invalidatesTags: ["Product", "Category", "Profile"]
     }),
     register: build.mutation({
       query: (body) => ({
@@ -16,7 +16,7 @@ export const loginRegisterApi = api.injectEndpoints({
         method: "POST",
         body
       }),
-      invalidatesTags: ["Product"]
+      invalidatesTags: ["Product", "Category", "Profile"]
     }),
   }),
 })

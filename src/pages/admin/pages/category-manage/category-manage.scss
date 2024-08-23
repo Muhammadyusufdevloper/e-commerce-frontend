@@ -1,0 +1,29 @@
+.category-manage {
+  padding: 30px 20px;
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 20px;
+    max-width: 1000px;
+  }
+  &__card {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    justify-content: space-between;
+  }
+  &__button {
+    padding: 2px 15px;
+    border-radius: 4px;
+    background-color: #000;
+    color: #fff;
+    font-size: 18px;
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

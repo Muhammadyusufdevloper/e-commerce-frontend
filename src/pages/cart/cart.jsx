@@ -5,22 +5,26 @@ import "./cart.scss"
 import { useSelector } from "react-redux"
 import Empty from "../../components/empty/empty"
 import emptyImg from "../../assets/images/cart/empty.webp"
+
 const Cart = () => {
     const cart = useSelector(state => state.cart.value)
+    console.log(cart);
+    const validCart = cart?.filter(cartItem => cartItem && cartItem._id);
+
     return (
         <>
             <section className="cart">
                 <div className="container">
                     {
-                        cart?.length ?
+                        validCart?.length ?
                             <>
                                 <h1 className="cart__title">Your cart</h1>
                                 <div className="cart__wrapper">
-                                    <ProductCartList cart={cart} />
-                                    <OrderSummary cart={cart} />
+                                    <ProductCartList cart={validCart} />
+                                    <OrderSummary cart={validCart} />
                                 </div>
                             </>
-                            : <Empty image={emptyImg} />
+                            : <Empty image={emptyImg} subtitle={"There are no products in the cart yet."} text="Start with the collections on the homepage or find the desired product through the search." />
                     }
                 </div>
             </section>

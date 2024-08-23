@@ -1,14 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.scss";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useSignInMutation } from "../../context/api/login-registerApi";
+import { useDispatch } from "react-redux";
+import { setToken } from "../../context/slices/authSlice";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const [loginAdmin] = useSignInMutation()
+    const [loginAdmin, { isSuccess, data, isError }] = useSignInMutation()
+    const navigate = useNavigate()
+    let dispatch = useDispatch()
+    console.log(data);
+
+    useEffect(() => {
+        if (isSuccess) {
+            navigate("/admin/product-manage")
+            dispatch(setToken(data?.payload?.token))
+        }
+    }, [isSuccess])
     const formik = useFormik({
         initialValues: {
             username: "",
@@ -21,7 +33,6 @@ const Login = () => {
                 .required("Password is required"),
         }),
         onSubmit: (values) => {
-            // Form submission
             loginAdmin(values);
         },
     });
@@ -30,7 +41,7 @@ const Login = () => {
         formik.touched[field] && formik.errors[field] ? "login__error" : "";
 
     return (
-        <section className="login">
+        <section className={`login ${isError ? "login__error" : ""}`}>
             <div className="login__wrapper">
                 <h1 className="login__title">Login</h1>
                 <form className="login__form" onSubmit={formik.handleSubmit}>

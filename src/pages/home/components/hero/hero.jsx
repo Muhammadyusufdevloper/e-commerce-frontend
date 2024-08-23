@@ -44,13 +44,17 @@ const Hero = () => {
                 </div>
             </section>
             <div className="sap-hero">
-                <div className="container sap-hero__wrapper">
+                {/* <marquee behavior="scroll" direction="left" scrollamount="10" loop="infinite"> */}
+                <div className=" container sap-hero__wrapper">
                     <img src={versace} alt="versace" />
                     <img src={zara} alt="zara" />
                     <img src={gucci} alt="gucci" />
                     <img src={prada} alt="prada" />
                     <img src={calvinKelin} alt="Calvin Kelin" />
+                    <img src={versace} alt="versace" />
+                    <img src={zara} alt="zara" />
                 </div>
+                {/* </marquee> */}
             </div>
         </>
     )

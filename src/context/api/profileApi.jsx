@@ -2,26 +2,25 @@ import { api } from './index'
 
 export const profileApi = api.injectEndpoints({
   endpoints: (build) => ({
-    signIn: build.mutation({
-      query: (body) => ({
-        url: "/admins/sign-in",
-        method: "POST",
+    getProfile: build.query({
+      query: (params) => ({
+        url: '/profile',
+        params
+      }),
+      providesTags: ["Profile"]
+    }),
+    updateProfile: build.mutation({
+      query: ({ id, body }) => ({
+        url: `/profile/${id}`,
+        method: "PATCH",
         body
       }),
-      invalidatesTags: ["Product"]
-    }),
-    register: build.mutation({
-      query: (body) => ({
-        url: "/admins/sign-up",
-        method: "POST",
-        body
-      }),
-      invalidatesTags: ["Product"]
-    }),
+      invalidatesTags: ["Profile"]
+    })
   }),
 })
 
 export const {
-  useRegisterMutation,
-  useSignInMutation
+  useGetProfileQuery,
+  useUpdateProfileMutation
 } = profileApi

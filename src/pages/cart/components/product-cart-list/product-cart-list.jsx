@@ -14,32 +14,35 @@ const ProductCartList = ({ cart }) => {
             <div className="product-cart-list">
                 <div className="product-cart-list__wrapper">
                     {
-                        cart?.map(cart => (
-                            <div key={cart?._id} className="product-cart-list__item">
-                                <Link to={`/single-route/${cart?._id}`}>
+                        cart?.map((cartItem, index) => (
+                            <div key={cartItem?._id || index} className="product-cart-list__item">
+                                <Link to={`/single-route/${cartItem?._id}`}>
                                     <div className="product-cart-list__image-box">
-                                        <img src={cart.urls[0]} alt={cart?.title} />
+                                        <img
+                                            src={Array.isArray(cartItem?.urls) && cartItem.urls.length > 0 ? cartItem.urls[0] : ""}
+                                            alt={cartItem?.title || "Product Image"}
+                                        />
                                     </div>
                                 </Link>
                                 <div className="product-cart-list__info-box">
                                     <div className="product-cart-list__left-box">
                                         <div className="product-cart-list__content">
-                                            <h3 className="product-cart-list__title">{cart?.title}</h3>
+                                            <h3 className="product-cart-list__title">{cartItem?.title}</h3>
                                             <p className="product-cart-list__size">Size: <span>Large</span> </p>
                                             <p className="product-cart-list__color">Color: <span>White</span> </p>
                                         </div>
-                                        <span className="product-cart-list__price">${cart?.price}</span>
+                                        <span className="product-cart-list__price">${cartItem?.price}</span>
                                     </div>
                                     <div className="product-cart-list__right-box">
-                                        <button onClick={() => dispatch(removeFromCart(cart?._id))} className="product-cart-list__remove-btn">
+                                        <button onClick={() => dispatch(removeFromCart(cartItem?._id))} className="product-cart-list__remove-btn">
                                             <img src={remove} alt="remove icon" />
                                         </button>
                                         <div className="product-cart-list__count-box">
-                                            <button disabled={cart?.quantity <= 1} onClick={() => dispatch(decrementCart(cart))} className="product-cart-list__count-btn">
+                                            <button disabled={cartItem?.quantity <= 1} onClick={() => dispatch(decrementCart(cartItem))} className="product-cart-list__count-btn">
                                                 <FaMinus />
                                             </button>
-                                            <span className="product-cart-list__count">{cart?.quantity}</span>
-                                            <button disabled={cart?.stock === cart?.quantity} onClick={() => dispatch(addToCart(cart))} className="product-cart-list__count-btn">
+                                            <span className="product-cart-list__count">{cartItem?.quantity}</span>
+                                            <button disabled={cartItem?.stock === cartItem?.quantity} onClick={() => dispatch(addToCart(cartItem))} className="product-cart-list__count-btn">
                                                 <FaPlus />
                                             </button>
                                         </div>

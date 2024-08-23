@@ -6,7 +6,7 @@ const NoteFound = () => {
         <>
             <section className="">
                 <div className="container">
-                    <Empty image={image} />
+                    <Empty image={image} subtitle={"There's nothing here!"} text="Sorry, the page you were looking for in this blog does not exist." />
                 </div>
             </section>
         </>

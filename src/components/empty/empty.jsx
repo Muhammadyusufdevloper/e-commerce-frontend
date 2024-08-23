@@ -1,20 +1,25 @@
 import PropTypes from "prop-types";
-import { Link, useNavigate } from "react-router-dom";
 import "./empty.scss";
 import { memo } from "react";
-const Empty = ({ image }) => {
-    let navigate = useNavigate();
+import ProductList from "../product-list/product-list";
+import { useGetProductsQuery } from "../../context/api/productApi";
+import { Link } from "react-router-dom";
+const Empty = ({ image, subtitle, text }) => {
+    const { data: product, isLoading, isFetching, isError } = useGetProductsQuery()
     return (
         <>
             <div className="empty">
                 <div className="empty__wrapper">
-                    <div className="empty__image">
-                        <img src={image} alt="empty img" />
+                    <div className="empty__content">
+                        <div className="empty__image">
+                            <img src={image} alt="empty img" />
+                        </div>
+                        <h3 className="empty__subtitle">{subtitle}</h3>
+                        <p className="empty__text">{text}</p>
+                        <Link className="empty__link" to="/">Home</Link>
                     </div>
-                    <div className="empty__link-wrapper">
-                        <Link to={"/"} className="empty__link">Return home</Link>
-                        <button onClick={() => navigate(-1)} className="empty__link">Go back</button>
-                    </div>
+                    <h1 className="empty__title">Popular products</h1>
+                    <ProductList product={product?.payload} isFetching={isFetching} isLoading={isLoading} isError={isError} />
                 </div>
             </div>
         </>
@@ -23,6 +28,8 @@ const Empty = ({ image }) => {
 
 Empty.propTypes = {
     image: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
 };
 
 export default memo(Empty);

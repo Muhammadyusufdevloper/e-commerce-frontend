@@ -21,7 +21,7 @@ const Wishlist = () => {
                                     }
                                 </div>
                             </div>
-                            : <Empty image={emptyImg} />
+                            : <Empty image={emptyImg} subtitle={"I haven't found anything interesting for now."} text="Start with the collections on the homepage or find the desired product through the search." />
                     }
                 </div>
             </section>

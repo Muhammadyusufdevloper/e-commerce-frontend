@@ -25,7 +25,7 @@ export const productApi = api.injectEndpoints({
     }),
     deleteProduct: build.mutation({
       query: (id) => ({
-        url: `/products/${id}`,
+        url: `/product/${id}`,
         method: "DELETE"
       }),
       invalidatesTags: ["Product"]
@@ -33,7 +33,7 @@ export const productApi = api.injectEndpoints({
     updateProduct: build.mutation({
       query: ({ id, body }) => ({
         url: `/products/${id}`,
-        method: "PUT", // or "PATCH"
+        method: "PATCH",
         body
       }),
       invalidatesTags: ["Product"]
