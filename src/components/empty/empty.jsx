@@ -1,11 +1,16 @@
 import PropTypes from "prop-types";
 import "./empty.scss";
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import ProductList from "../product-list/product-list";
 import { useGetProductsQuery } from "../../context/api/productApi";
 import { Link } from "react-router-dom";
 const Empty = ({ image, subtitle, text }) => {
-    const { data: product, isLoading, isFetching, isError } = useGetProductsQuery()
+    const { data: product, isLoading, isFetching, isError } = useGetProductsQuery({
+        limit: 15, skip: 1
+    })
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <div className="empty">

@@ -1,0 +1,158 @@
+.shop-sidebar {
+  &__overlay {
+    display: none;
+    transition: display 0.3s ease;
+  }
+  &__wrapper {
+    padding: 20px 24px 29px 24px;
+    border: 1px solid #0000001a;
+    border-radius: 20px;
+  }
+  &__top-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #0000001a;
+  }
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    text-align: left;
+  }
+  &__close-btn,
+  &__menu-btn {
+    display: flex;
+  }
+  &__close-btn,
+  &__menu-btn {
+    width: 24px;
+    height: 24px;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__close-btn {
+    display: none;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #0000001a;
+  }
+  &__item {
+    width: 100%;
+  }
+  &__link {
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.6px;
+    padding: 2px 0;
+    width: 100%;
+    cursor: pointer;
+  }
+  &__slider {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #0000001a;
+  }
+  &__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    cursor: pointer;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 27px;
+      text-align: left;
+    }
+
+    span {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  details[open] &__summary span {
+    transform: rotate(180deg);
+  }
+  &__color {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #0000001a;
+  }
+  &__colors {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  &__color-btn {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: 2px solid #00000033;
+    font-size: 20px;
+    color: #000;
+  }
+  &__sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__size-btn {
+    padding: 8px 16px;
+    border-radius: 62px !important;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+.shop-sidebar {
+  @media (max-width: 850px) {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: -100%;
+    margin: 0 auto;
+    height: 85vh;
+    z-index: 9999;
+    transition: bottom 0.3s ease;
+    &__wrapper {
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      overflow: auto;
+    }
+    &__close-btn {
+      display: flex;
+    }
+    &__menu-btn {
+      display: none;
+    }
+    &--active {
+      bottom: 0;
+    }
+    &__overlay--active {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 99;
+    }
+  }
+}

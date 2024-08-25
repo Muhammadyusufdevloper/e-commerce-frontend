@@ -4,7 +4,7 @@ import "./new-arrivals.scss"
 import { memo } from "react"
 import { useGetProductsQuery } from "../../../../context/api/productApi"
 const NewArrivals = () => {
-    const { data: product, isLoading, isFetching, isError } = useGetProductsQuery()
+    const { data: product, isLoading, isFetching, isError } = useGetProductsQuery({ limit: 15, skip: 1 })
     return (
         <>
             <section className="new-arrivals">
@@ -13,7 +13,7 @@ const NewArrivals = () => {
                         <h2 className="new-arrivals__title">NEW ARRIVALS</h2>
                         <ProductList product={product?.payload} isFetching={isFetching} isLoading={isLoading} isError={isError} />
                         <div className="new-arrivals__link-wrapper">
-                            <Link className="new-arrivals__link">View All</Link>
+                            <Link to="/shop" className="new-arrivals__link">View All</Link>
                         </div>
                     </div>
                 </div>

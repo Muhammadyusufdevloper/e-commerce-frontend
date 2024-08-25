@@ -21,10 +21,13 @@ const Login = () => {
             dispatch(setToken(data?.payload?.token))
         }
     }, [isSuccess])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const formik = useFormik({
         initialValues: {
-            username: "",
-            password: "",
+            username: "ali32",
+            password: "12345678",
         },
         validationSchema: Yup.object({
             username: Yup.string().required("Username is required"),
@@ -89,7 +92,7 @@ const Login = () => {
                     </button>
                     <div className="login__context">
                         <p className="login__context-text">{"Don't"} have an account?</p>
-                        <Link to="/register" className="login__context-link">Register</Link>
+                        {/* <Link to="/register" className="login__context-link">Register</Link> */}
                     </div>
                 </form>
             </div>

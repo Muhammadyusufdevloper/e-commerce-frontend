@@ -1,4 +1,4 @@
-import { memo } from "react"
+import { memo, useEffect } from "react"
 import ProductCartList from "./components/product-cart-list/product-cart-list"
 import OrderSummary from "./components/order-summary/order-summary"
 import "./cart.scss"
@@ -10,7 +10,9 @@ const Cart = () => {
     const cart = useSelector(state => state.cart.value)
     console.log(cart);
     const validCart = cart?.filter(cartItem => cartItem && cartItem._id);
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [cart])
     return (
         <>
             <section className="cart">

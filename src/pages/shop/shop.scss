@@ -1,0 +1,13 @@
+.shop {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 295px 1fr;
+    grid-gap: 20px;
+  }
+  @media (max-width: 850px) {
+    &__wrapper {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+}

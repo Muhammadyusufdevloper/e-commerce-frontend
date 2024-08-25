@@ -10,7 +10,7 @@ const SapHeader = () => {
                 <div className="container sap-header__wrapper">
                     <div className="sap-header__content">
                         <p className="sap-header__text">Sign up and get 20% off to your first order.</p>
-                        <Link to="/sign-up" className="sap-header__link">Sign Up Now</Link>
+                        <Link to="/login" className="sap-header__link">Sign Up Now</Link>
                     </div>
                     <button onClick={() => setShowAdvertising(false)} className="sap-header__close-btn"><IoClose /></button>
                 </div>

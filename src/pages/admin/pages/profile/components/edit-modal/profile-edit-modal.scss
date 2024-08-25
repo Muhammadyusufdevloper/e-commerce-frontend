@@ -1,4 +1,4 @@
-.delete-modal {
+.edit-modal {
   &__overlay {
     position: fixed;
     top: 0;
@@ -9,7 +9,6 @@
     opacity: 0;
     transition: opacity 0.3s ease;
     animation: fadeIn 0.3s forwards;
-    z-index: 9999;
   }
   &__wrapper {
     position: fixed;
@@ -23,7 +22,9 @@
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     animation: slideIn 0.3s forwards;
-    z-index: 999999;
+    &--profile {
+      top: 50%;
+    }
   }
   &__top {
     display: flex;
@@ -45,8 +46,42 @@
       background-color: rgba(128, 128, 128, 0.135);
     }
   }
-  &__text {
+  &__card-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     margin-bottom: 30px;
+  }
+  &__label {
+    margin-bottom: 10px;
+    &--error {
+      color: red;
+    }
+  }
+  &__input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  &__input {
+    width: 100%;
+    padding: 12px 16px 12px 8px;
+    border-radius: 5px;
+    border: 1px solid rgb(212, 211, 213);
+    outline: none;
+    &--error {
+      border: 1px solid red;
+    }
+  }
+  &__eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  &__error-message {
+    color: red;
   }
   &__bottom {
     display: flex;

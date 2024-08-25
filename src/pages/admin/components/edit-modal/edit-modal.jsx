@@ -2,16 +2,17 @@ import "./edit-modal.scss";
 import { CgClose } from "react-icons/cg";
 import { memo, useEffect, useState } from "react";
 import { useUpdateCategoryMutation } from "../../../../context/api/categoryApi";
+import { useUpdateProductMutation } from "../../../../context/api/productApi";
 
 const EditModal = ({ setModalEdit, modalEdit, isEdit, title }) => {
     const [editCategory, { isSuccess: categorySuccess }] = useUpdateCategoryMutation();
+    const [editProduct, { isSuccess: productSuccess }] = useUpdateProductMutation()
     const [editInput, setEditInput] = useState(modalEdit)
     useEffect(() => {
         if (categorySuccess) {
             setModalEdit(null)
         }
     }, [categorySuccess])
-    console.log(editInput);
 
     const handelEdit = (e) => {
         e.preventDefault()
@@ -19,7 +20,7 @@ const EditModal = ({ setModalEdit, modalEdit, isEdit, title }) => {
             editCategory({ body: editInput, id: editInput._id })
             setModalEdit(null)
         } else {
-            editCategory(modalEdit)
+            editProduct({ body: editInput, id: editInput._id })
         }
     }
     return (

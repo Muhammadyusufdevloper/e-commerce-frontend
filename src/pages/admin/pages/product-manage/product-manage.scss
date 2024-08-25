@@ -104,6 +104,16 @@
     align-items: center;
     justify-content: center;
   }
+  &__select {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    option {
+      background-color: transparent !important;
+    }
+  }
 }
 
 .loader {

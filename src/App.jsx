@@ -7,6 +7,8 @@ import ProductCreate from "./pages/admin/pages/product-create/product-create"
 import CategoryManage from "./pages/admin/pages/category-manage/category-manage"
 import CategoryCreate from "./pages/admin/pages/category-create/category-create"
 import Profile from "./pages/admin/pages/profile/profile"
+import Shop from "./pages/shop/shop"
+import Checkout from "./pages/cart/pages/checkout/checkout"
 const Wishlist = lazy(() => import("./pages/wishlist/wishlist"))
 const NoteFound = lazy(() => import("./pages/note-found/note-found"))
 const Cart = lazy(() => import("./pages/cart/cart"))
@@ -25,6 +27,8 @@ const App = () => {
           <Route path="single-route/:id" element={<SingleRoute />} />
           <Route path="cart" element={<Cart />} />
           <Route path="wishlist" element={<Wishlist />} />
+          <Route path="shop" element={<Shop />} />
+          <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<NoteFound />} />
         </Route>
         <Route path="/" element={<Auth />}>

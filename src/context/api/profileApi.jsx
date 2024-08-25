@@ -4,14 +4,14 @@ export const profileApi = api.injectEndpoints({
   endpoints: (build) => ({
     getProfile: build.query({
       query: (params) => ({
-        url: '/profile',
+        url: '/admin/profile',
         params
       }),
       providesTags: ["Profile"]
     }),
     updateProfile: build.mutation({
-      query: ({ id, body }) => ({
-        url: `/profile/${id}`,
+      query: ({ body }) => ({
+        url: `/admin/profile`,
         method: "PATCH",
         body
       }),

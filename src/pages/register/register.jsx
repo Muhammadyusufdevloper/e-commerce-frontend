@@ -33,6 +33,7 @@ const Register = () => {
         if (isSuccess) {
             navigate('/login')
         }
+        window.scrollTo(0, 0)
     }, [])
     const formik = useFormik({
         initialValues,
